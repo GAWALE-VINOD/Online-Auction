@@ -1,0 +1,47 @@
+{% extends 'navigation3.html' %}
+{% block body1 %}
+{% load static %}
+<div class="container" style="background:white">
+    <h2 style="font-weight:bold;font-family : 'Monotype Corsiva' ; color : #E6120E ;margin-top:20px" align="center">Add Session date</h2><hr>
+
+<div align="left" class="container-fluid" style="width:70%;margin-top:5%">
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+
+    <div class="form-group col-md-12">
+    <label for="exampleInputPassword1">Select Session date</label>
+    <input type="date" class="form-control" id="exampleFormControlSelect1" name="date">
+</div></div>
+
+<div align="center">
+  <button type="submit" class="btn btn-primary" style="width:40%;margin-bottom:5%">Submit</button></div>
+</form>
+</div>
+</div>
+{% comment %} <input type="date" id="exampleFormControlSelect1"> {% endcomment %}
+
+<script>
+    var todayDate = new Date();
+    var month = todayDate.getMonth() - -1; 
+    var year = todayDate.getUTCFullYear() - 0; 
+    var tdate = todayDate.getDate() - 0; 
+    if(month < 10){
+      month = "0" + month 
+    }
+    if(tdate < 10){
+      tdate = "0" + tdate;
+    }
+    var maxDate = year + "-" + month + "-" + tdate;
+    document.getElementById("exampleFormControlSelect1").setAttribute("min", maxDate);
+    console.log(maxDate);
+  </script>
+
+
+{% if error %}
+<script>
+    alert('SessionDate Added Successfully');
+    window.location = "{% url 'view_session_date' %}";
+</script>
+{% endif %}
+{% endblock %}

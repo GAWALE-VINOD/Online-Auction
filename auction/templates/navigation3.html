@@ -1,0 +1,62 @@
+{% extends 'navigation2.html' %}
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light" style="margin-left:-5%;margin-top:2%;width:95%;background-color:#00021a">
+  <a class="navbar-brand" href="" style="color:white;font-weight:bold"><i class="fa fa-bars" style="margin-right:1px"></i>Online Auction Service System</a>
+
+  {% if request.user.is_staff %}
+
+
+
+  {% comment %} <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavDropdown">
+    <li class="nav-item dropdown" style="margin-right:-60%;color:white">
+      <a class="nav-link dropdown-toggle" style="color:white;margin-left:5%" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-user-circle"></i> {{request.user.username}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'change_password' %}">Password</a>
+        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </li>
+</div> {% endcomment %}
+
+      {% comment %}start Notification {% endcomment %}
+     <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavDropdown">
+
+      <li class="nav-item dropdown" style="margin-right:-60%;color:white;margin-left:0px">
+        <a class="nav-link dropdown" style="margin-right:-60%;color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fa fa-bell" style="top:0;padding-bottom:0px">{{count}}</i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size:12px">
+            <a class="dropdown-item" href="#">Notification</a><hr>
+          {% for i in new2 %}
+            <a class="dropdown-item" href="">
+                <a href="{% url 'product_detail2' i.id %}"><span><i class="fa fa-user-circle" style="font-size:17px"></i> ({{forloop.counter}}.) New :{{i.name}}</span></a>
+          {% endfor %}
+        </div><hr>
+      </li>
+  </div>   
+  {% comment %} end Notification {% endcomment %}
+
+{% comment %} Start Admin Button {% endcomment %}
+  <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavDropdown">
+    <li class="nav-item dropdown" style="margin-right:0%;color:white">
+      <a class="nav-link dropdown-toggle" style="color:white;margin-left:5%" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-user-circle"></i> {{request.user.username}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'change_password' %}">Password</a>
+        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </li>
+</div>
+{% comment %} End Admin {% endcomment %}
+
+
+     {% endif %}
+
+ 
+ </nav>
+{% block body1 %}
+{% endblock %}
+{% endblock %}

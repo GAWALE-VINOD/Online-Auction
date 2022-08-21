@@ -1,0 +1,42 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<body style="background-color:skyblue;">
+<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E
+ ; font-weight : bold;margin-top:2%">About Us</h2></center><hr>
+<section id="about">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6">
+                         {% comment %} <img src="{% static 'images/1.png' %}" style="height:350px;width:97%"> {% endcomment %}
+                         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img class="d-block w-100" img src="{% static 'images/auction3.jpg' %}" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block w-100" img src="{% static 'images/auction2.jpg' %}" style="height:350px;width:50%" alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block w-100" img src="{% static 'images/auction4.png' %}" alt="Third slide">
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                         <div class="col-md-6">
+                         <p style="color:blue;font-size:22px;font-family:cursive"> Auction, the buying and selling of real and personal property through open public bidding. The traditional auction process involves a succession of increasing bids or offers by potential purchasers until the highest (and final) bid is accepted by the auctioneer (who is usually an agent of the seller). By contrast, in a so-called Dutch auction, the seller offers property at successively lower prices until one of his offers is accepted or until the price drops so low as to force the withdrawal of the offered property.</p>
+                    </div>
+
+
+               </div>
+          </div>
+     </section>
+
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+
+
+<div class="container" style="width:100%;background:white">
+    <center><h2 style="padding-top:;margin-top:5%;font-weight:bold;font-family : 'Monotype Corsiva' ;color:red">All Accepted Product</h2></center>
+  <hr>
+  <div class="container-fluid">
+   <h1 class="text-center mt-5 mb-5">
+      <center><h3 align="center" style="color:red">{{message1}}</h3></center>
+   </h1>
+     <div class="row" style="margin-bottom:5%">
+      
+      {% for product in products %}
+          
+      <div class="col-md-3">
+                  <div style="padding:px;width:80%;margin-bottom:5%;border-radius:3%;border:1px solid grey">
+        <center>
+                      <button class="btn btn-danger" style="width:100%">
+                          {{product.name}}
+                      </button>
+                      <img src="/media/{{product.images}}" style="margin-top:1%;width:180px;height:170px;float:center"></center>
+             <div style="padding:10px">
+             <h5 style="color:red;font-weight:bold"> {{product.name}} </h5>
+                          <div class="row">
+                          <div class="col-md-12">
+                              <span style="font-weight:bold;color:blue">&#8377; : {{product.min_price}}</span>
+                          </div>
+                          </div></div>
+                     
+            <a href="#"><button type="submit" class="btn btn-primary" style="width:100%">
+                                 </i>View Detail</button></a>
+                     
+         </div></div>
+          {% comment %} {% endif %} {% endcomment %}
+    {% endfor %}
+  
+  </div>
+  </div>
+  
+    </div>
+  
+  

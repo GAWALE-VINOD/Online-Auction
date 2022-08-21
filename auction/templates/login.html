@@ -1,0 +1,183 @@
+{% comment %} {% extends 'navigation.html' %}  {% endcomment %}
+{% block body %}
+{% load static %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('logged in successfully');
+    window.location=('{% url 'admin_home' %}');
+</script>
+{% endifequal %}
+{% ifequal error "not" %}
+<script>
+    alert('Username & Password are not Matching');
+</script>
+{% endifequal %}
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .centered_img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 15px;
+    }
+    
+
+
+	{% comment %} .user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			/* background: #df8d74;  */
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		} {% endcomment %}
+
+    {% comment %} .navbar{
+      background-color:#6ca8e4;
+    }
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #fff;
+			
+		}
+
+		.login_btn {
+			width: 100%;
+			background: #0f9bca !important;
+			color: rgb(206, 22, 22) !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		#messages{
+			background-color: grey;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		} {% endcomment %}
+
+  </style>
+ 
+</head>
+
+<body>
+  
+  <div class="container-flex" style="height:100%;">
+    {% load static %}
+     <img src="{% static "images/login.jpg" %}" alt="My image" style="height:635px; width:100%">
+    <div class="centered_img">
+
+      <div class="container h-100">
+			<div class="row">
+        <div class="col-md-5">
+          <h2 class="text-center" >NEW CUSTOMERS</h2><hr>
+          {% comment %} <p>By creating an account with our store,we will be able to move through the
+          checkout process faster,store multiple shipping addresses,view and track your orders in your
+            account and more.</p> {% endcomment %}
+      <button class="btn btn-danger"style="color:white;margin-top:4%"><a href="{% url 'signup' %}" style="color:white">CREATE AN ACCOUNT</a></button><br><br><br>
+      <button class="btn btn-success"style="color:white;margin-top:4%"><a href="{% url 'home' %}" style="color:white">Home</a></button>  
+    </div>
+        <div class="col-md-7">
+          <h2 class="text-center">Login Form</h2><hr>
+    
+          <form method="post" action="">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname" placeholder="Enter Username" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:2%">SUBMIT</button>
+    </form>
+        </div>
+      </div>
+    
+    </div>
+		</div>
+    {% ifequal error "pat" %}
+    <script>
+        alert('logged in successfully');
+        window.location=('{% url 'profile1' %}');
+    </script>
+    {% endifequal %}
+    {% ifequal error "pat1" %}
+    <script>
+        alert('logged in successfully');
+        window.location=('{% url 'profile1' %}');
+    </script>
+    {% endifequal %}
+    {% ifequal error "not" %}
+    <script>
+        alert('Username & Password are not Matching');
+    </script>
+    {% endifequal %}
+
+
+	</div>
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+{% endblock %}
